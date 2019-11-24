@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<body>
+    {% if articles_search.count > 0 %}
+
+    {% for article in articles_search %}
+    <li><a href="/get/{{article.article_id}}/">{{article.title}}</a></li>
+    {% endfor %}
+
+    {% else %}
+    <li> None to show</li>
+    {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title> Homepage Template </title>
+
+    <img src="{% static 'images/logo.png' %} " width="100" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
+    <script src='{% static "js/jquery-2.2.3.min.js" %}'></script>
+    <script src='{% static "js/ajax.js" %}'></script>
+</head>
+
+<body>
+    <div id='page'>
+
+        <h1 id='title'> {% block title %}Home page of Articles {% endblock %}</h1>
+
+        <div id='sidebar'>
+            {% block sidebar %}
+            <ul>
+                <li><a href='/accounts/login'> Login</a></li>
+                <li><a href='/accounts/register/'> Register</a></li>
+                <li><a href="/admin/">Admin </a></li>
+            </ul>
+            {% endblock %}
+        </div>
+
+        <div id='content'>
+            {% block content %} <p style="text-align: center; font-style: italic; font-size:large"> Welcome to Articles
+                Homepage Area</p> {% endblock %}
+
+        </div>
+    </div>
+</body>
+
+</html>

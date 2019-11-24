@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<body>
+    {% extends 'home.html' %}
+
+    {% block sidebar %}
+    <ul>
+        <li><a href="/home/">Homepage</a></li>
+        <li><a href="/create_article/">Create Article</a></li>
+        <h4> Search</h4>
+        {% csrf_token %}
+        <input type="text" id="search" name="search" size="15" />
+    </ul>
+    <ul id="search-results"></ul>
+    {% endblock %}
+
+    {% block content %}
+
+    <h1>{% block title %} All Articles {% endblock %}</h1>
+    <h3>Language is :{{language}}</h3>
+    <h3>Session Language is :{{session_language}}</h3>
+
+    {% if articles_all.count > 0 %}
+
+    {% for article in articles_all%}
+    <div>
+        <h2><a href="/get/{{article.article_id}}/">{{article.article_id}}</a>
+        </h2>
+        <p>
+            <h3>{{article.title}}</h3>
+        </p>
+        <p>{{article.body}}</p>
+        <p>{{article.likes}} people liked this article</p>
+    </div>
+
+    {% endfor %}
+
+    {% else %}
+    <li> None to show</li>
+    {% endif %}
+
+    {% endblock %}
+
+
+</body>
+
+</html>

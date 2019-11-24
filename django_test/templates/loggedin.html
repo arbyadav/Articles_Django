@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE HTML>	
+<html>
+<head>
+    <title > Homepage Template </title>
+    
+    <img src="{% static 'images/logo.png' %} " width="100"/>
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/default.css' %}">
+</head>
+<body>
+    <div id='page'>
+
+        
+        <div id='sidebar'>
+            {% block sidebar %}
+            <ul>
+                <li><a href="/home/">Homepage</a></li>
+                <li><a href="/all/">Articles</a></li>
+            </ul>
+            {% endblock %}
+        </div>
+
+
+        <div id='content' >
+       
+            {% block content %} 
+                 <h2>
+                        Hi {{full_name}} you are now Logged in!!      
+                </h2>
+                <br>
+                <p>Articles are<a href="/all/"> here </a>-</p>
+            <p> Click <a href='/accounts/logout/'> here</a> to Logout</p>
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

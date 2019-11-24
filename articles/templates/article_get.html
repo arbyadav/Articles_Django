@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    {% extends 'home.html' %}
+
+    {% block sidebar %}
+    <ul>
+        <li><a href="/home">Homepage</a></li>
+        <li><a href="/all">Articles</a></li>
+    </ul>
+
+    {% endblock %}
+
+    {% block content %}
+
+    <h1>{% block title %} Articles list {{article_get.article_id}}{% endblock %}</h1>
+    <p>
+        <h3>{{article_get.title}}</h3>
+    </p>
+    <p>{{article_get.body}}</p>
+
+    {% if article_get.thumbnail %}
+    <p><img src="/static/{{article_get.thumbnail}}" width="200" /></p>
+    {% endif %}
+
+    <p>{{article_get.likes}} people liked this article</p>
+    <p><a href="/like/{{article_get.article_id}}">Like </a> </p>
+    {% endblock%}
+
+</body>
+
+</html>
